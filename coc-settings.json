@@ -1,0 +1,21 @@
+{
+  "languageserver": {
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "filetypes": ["go"]
+    }
+  },
+  "explorer.keyMappings.global": {
+    "<tab>": false
+  },
+  "explorer.keyMappings.vmap": {
+    "<tab>": false
+  },
+  "explorer.position": "right",
+  "explorer.width": 30,
+  "explorer.icon.enableNerdfont": true,
+  "coc.preferences.formatOnSaveFiletypes": ["typescript", "go", "json", "lua"],
+
+  "workspace.workspaceFolderCheckCwd": false
+}

@@ -1,0 +1,72 @@
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+set nocompatible
+call plug#begin('~/.vim/plugged')
+Plug 'sheerun/vim-polyglot'
+Plug 'joshdick/onedark.vim'
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+
+" Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+" Plug 'ctrlpvim/ctrlp.vim'
+Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
+
+Plug 'voldikss/vim-floaterm'
+" Initialize plugin system
+call plug#end()
+
+
+" init colorSchema
+syntax on
+let g:onedark_terminal_italics = 1
+colorscheme onedark
+
+let g:clap_theme = 'material_design_dark'
+" init nerdtree
+" nnoremap <leader>ft :NERDTreeToggle<CR>
+" nnoremap <leader>ff :NERDTreeFind<CR>
+" nnoremap <leader>fn :NERDTreeFocus<CR>
+" let g:NERDTreeDirArrowExpandable = '▸'
+" let g:NERDTreeDirArrowCollapsible = '▾'
+" let g:plug_window = 'noautocmd vertical topleft new'
+" let NERDTreeShowHidden=1
+" let NERDTreeWinPos='right'
+
+" init clap
+nnoremap <C-p> :Clap files<CR>
+
+" init vim-go
+"
+
+" init coc
+set signcolumn=number
+set hidden
+set shortmess+=c
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <leader>rn <Plug>(coc-rename)
+nnoremap <leader>ft :CocCommand explorer<CR>
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" init Floaterm
+nnoremap   <silent>   <F12>   :FloatermToggle<CR>
+tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
+
+"common setting
+" Switch between different windows by their direction`
+noremap <C-h> :tabprevious<CR>
+noremap <C-l> :tabnext<CR>
+noremap <Tab> :wincmd w<CR>
+
+vnoremap \y "*y
