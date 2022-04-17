@@ -53,6 +53,7 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 noremap <C-h> :BufferLineCyclePre<CR>
 noremap <C-l> :BufferLineCycleNext<CR>
 noremap <leader>bp :BufferLinePick<CR>
+noremap <leader>bk :BufferLinePickClose<CR>
 noremap <leader>bc :BufferLinePickClose<CR>
 noremap <Tab> :wincmd w<CR>
 
