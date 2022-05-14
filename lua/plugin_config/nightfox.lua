@@ -11,10 +11,6 @@ nightfox.setup({
                         functions = "italic,bold" -- styles can be a comma separated list
                 },
         },
-        groups = {
-                TSPunctDelimiter = { fg = "${red}" }, -- Override a highlight group with the color red
-                LspCodeLens = { bg = "#000000", style = "italic" },
-        }
 })
 
 
