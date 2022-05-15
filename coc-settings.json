@@ -16,6 +16,5 @@
   "explorer.width": 30,
   "explorer.icon.enableNerdfont": true,
   "coc.preferences.formatOnSaveFiletypes": ["typescript", "go", "json", "lua"],
-
   "workspace.workspaceFolderCheckCwd": false
 }
