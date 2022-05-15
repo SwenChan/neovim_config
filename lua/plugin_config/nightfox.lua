@@ -5,6 +5,7 @@ local nightfox = require('nightfox')
 nightfox.setup({
         options = {
                 terminal_colors = true,
+                dim_inactive = true,
                 transparent = true,
                 styles = {
                         comments = "italic", -- change style of comments to be italic
