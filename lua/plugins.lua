@@ -83,6 +83,13 @@ return require('packer').startup({
                 use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
 
                 use {'fatih/vim-go', branch = 'master', run = ':GoUpdateBinaries', ft = 'go'}
+
+                use {
+                        'natecraddock/workspaces.nvim',
+                        config = function ()
+                                require("plugin_config.workspaces")
+                        end
+                }
         end,
         config = {
                 display = {
