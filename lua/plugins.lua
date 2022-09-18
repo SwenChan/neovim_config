@@ -92,9 +92,25 @@ return require('packer').startup({
                 }
 
                 use {
+                        "SmiteshP/nvim-navic",
+                        requires = "neovim/nvim-lspconfig",
+                        config = function()
+                                local navic = require("nvim-navic")
+
+                                require("lspconfig").gopls.setup {
+                                        on_attach = function(client, bufnr)
+                                                navic.attach(client, bufnr)
+                                        end
+                                }
+                        end
+                }
+
+
+                use {
                         -- 'fgheng/winbar.nvim',
                         'mauricekraus/winbar.nvim',
                         branch = 'fix/#5',
+                        requires = 'SmiteshP/nvim-navic',
                         config = function ()
                                 require('plugin_config.winbar')
                         end
