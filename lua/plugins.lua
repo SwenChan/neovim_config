@@ -66,7 +66,7 @@ return require('packer').startup({
 
                 use {
                         'akinsho/bufferline.nvim',
-                        branch = 'main',
+                        tag = 'v2.*',
                         requires = 'kyazdani42/nvim-web-devicons',
                         config = function ()
                                 require('plugin_config.bufferline')
@@ -80,7 +80,7 @@ return require('packer').startup({
                         end
                 }
 
-                use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
+                use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install'}
 
                 use {'fatih/vim-go', branch = 'master', run = ':GoUpdateBinaries', ft = 'go'}
 
@@ -88,6 +88,15 @@ return require('packer').startup({
                         'natecraddock/workspaces.nvim',
                         config = function ()
                                 require("plugin_config.workspaces")
+                        end
+                }
+
+                use {
+                        -- 'fgheng/winbar.nvim',
+                        'mauricekraus/winbar.nvim',
+                        branch = 'fix/#5',
+                        config = function ()
+                                require('plugin_config.winbar')
                         end
                 }
         end,
@@ -99,4 +108,3 @@ return require('packer').startup({
                 }
         }
 })
-

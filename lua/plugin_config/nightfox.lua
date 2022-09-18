@@ -12,8 +12,11 @@ nightfox.setup({
                         keywords = "bold", -- change style of keywords to be bold
                         functions = "italic,bold", -- styles can be a comma separated list
                         types = "italic,bold" -- styles can be a comma separated list
+                },
+                groups = {
+                        Search = { fg = "bg2", bg = "#ff0000"}
                 }
-        }
+        },
 })
 
-
+nightfox.compile()
