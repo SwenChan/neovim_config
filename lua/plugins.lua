@@ -66,7 +66,7 @@ return require('packer').startup({
 
                 use {
                         'akinsho/bufferline.nvim',
-                        tag = 'v2.*',
+                        tag = 'v3.*',
                         requires = 'kyazdani42/nvim-web-devicons',
                         config = function ()
                                 require('plugin_config.bufferline')
@@ -80,7 +80,7 @@ return require('packer').startup({
                         end
                 }
 
-                use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install'}
+                use {'neoclide/coc.nvim', branch = 'master', run = 'pnpm install'}
 
                 use {'fatih/vim-go', branch = 'master', run = ':GoUpdateBinaries', ft = 'go'}
 
