@@ -16,5 +16,11 @@
   "explorer.width": 30,
   "explorer.icon.enableNerdfont": true,
   "coc.preferences.formatOnSaveFiletypes": ["typescript", "go", "json", "lua"],
-  "workspace.workspaceFolderCheckCwd": false
+  "workspace.workspaceFolderCheckCwd": false,
+
+  "rust-analyzer.enable": true,
+  "rust-analyzer.server.path": "/Users/swenchan/.rustup/toolchains/nightly-x86_64-apple-darwin/bin/rust-analyzer",
+  "rust-analyzer.server.extraEnv": {
+    "RUSTUP_TOOLCHAIN": "nightly"
+  }
 }
