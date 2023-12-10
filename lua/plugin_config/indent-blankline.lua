@@ -1,11 +1,15 @@
-vim.opt.list = true
-vim.opt.listchars:append("space:⋅")
-vim.opt.listchars:append("eol:↴")
-
-require("indent_blankline").setup {
-    space_char_blankline = " ",
-    show_current_context = true,
-    buftype_exclude = { "terminal" },
-    filetype_exclude = { "alpha", "packer" }
-}
-
+require("ibl").setup({
+  exclude = {
+    filetypes = { "alpha", "packer", "lspinfo", "checkhealth", "help", "gitcommit", "man" },
+    buftypes = { "terminal", "quickfix", "nofile", "prompt" },
+  },
+  indent = {
+    char = "│",
+    tab_char = "⋅",
+  },
+  whitespace = {
+    highlight = highlight,
+    remove_blankline_trail = false,
+  },
+  scope = { enabled = true },
+})
