@@ -42,7 +42,7 @@ return require("lazy").setup({
       })
     end,
   },
-
+  {"onsails/lspkind.nvim"},
   {
     "nvim-telescope/telescope.nvim",
     dependencies = { { "nvim-lua/plenary.nvim" } },
@@ -81,7 +81,7 @@ return require("lazy").setup({
     end,
   },
 
-  { "neoclide/coc.nvim", branch = "master", build = "pnpm install" },
+  -- { "neoclide/coc.nvim", branch = "master", build = "pnpm install" },
 
   { "fatih/vim-go", branch = "master", build = ":GoUpdateBinaries", ft = "go" },
 
@@ -135,7 +135,13 @@ return require("lazy").setup({
       require("plugin_config.formatter")
     end,
   },
-  "neovim/nvim-lspconfig",
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+    },
+  },
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/cmp-buffer",
   "hrsh7th/cmp-path",
@@ -154,6 +160,24 @@ return require("lazy").setup({
       "cmp-path",
       "cmp-cmdline",
     },
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+      "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    },
+    config = function()
+      require("plugin_config.neotree")
+    end,
+  },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    opts = {}, -- this is equalent to setup({}) function
   },
 }, {
 

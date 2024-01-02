@@ -13,7 +13,7 @@ require("bufferline").setup{
                 close_icon = '',
                 left_trunc_marker = '',
                 right_trunc_marker = '',
-                diagnostics = "coc",
+                diagnostics = "nvim_lsp",
                 color_icons = true,
                 show_buffer_icons = true,
                 show_buffer_default_icon = true,
