@@ -119,15 +119,20 @@ local on_attach = function(client, bufnr)
   end, bufopts)
 end
 
-require("lspconfig")["ruff_lsp"].setup({
+-- require("lspconfig")["ruff_lsp"].setup({
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   -- init_options = {
+--   --   settings = {
+--   --     -- Any extra CLI arguments for `ruff` go here.
+--   --     args = {},
+--   --   },
+--   -- },
+-- })
+
+require("lspconfig")["pyright"].setup({
   on_attach = on_attach,
-  -- capabilities = capabilities,
-  init_options = {
-    settings = {
-      -- Any extra CLI arguments for `ruff` go here.
-      args = {},
-    },
-  },
+  capabilities = capabilities,
 })
 
 require("lspconfig")["tsserver"].setup({
