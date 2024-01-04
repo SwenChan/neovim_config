@@ -18,6 +18,8 @@ cmp.setup({
     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<Tab>"] = cmp.mapping.select_next_item(),
+    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
     ["<C-k>"] = cmp.mapping.select_prev_item(),
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-e>"] = cmp.mapping.abort(),
@@ -141,6 +143,14 @@ require("lspconfig")["tsserver"].setup({
 })
 require("lspconfig")["gopls"].setup({
   capabilities = capabilities,
+  on_attach = function (client, bufnr)
+    vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+    client.server_capabilities.hoverProvider = false
+    local bufopts = { noremap = true, silent = true, buffer = bufnr }
+    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set("n", "gr", vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set("n", "<space>rn", '<cmd>GoRename<cr>')
+  end
 })
 
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
