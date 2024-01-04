@@ -42,7 +42,7 @@ return require("lazy").setup({
       })
     end,
   },
-  {"onsails/lspkind.nvim"},
+  { "onsails/lspkind.nvim" },
   {
     "nvim-telescope/telescope.nvim",
     dependencies = { { "nvim-lua/plenary.nvim" } },
@@ -68,7 +68,7 @@ return require("lazy").setup({
   {
     "akinsho/bufferline.nvim",
     version = "v3.*",
-    dependencies = "kyazdani42/nvim-web-devicons",
+    dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       require("plugin_config.bufferline")
     end,
@@ -93,16 +93,23 @@ return require("lazy").setup({
   },
 
   {
+    "L3MON4D3/LuaSnip",
+    -- follow latest release.
+    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    -- install jsregexp (optional!).
+    build = "make install_jsregexp",
+  },
+
+  {
     "SmiteshP/nvim-navic",
     dependencies = "neovim/nvim-lspconfig",
     config = function()
-      local navic = require("nvim-navic")
-
-      require("lspconfig").gopls.setup({
-        on_attach = function(client, bufnr)
-          navic.attach(client, bufnr)
-        end,
-      })
+      -- local navic = require("nvim-navic")
+      -- require("lspconfig").gopls.setup({
+      --   on_attach = function(client, bufnr)
+      --     navic.attach(client, bufnr)
+      --   end,
+      -- })
     end,
   },
 
@@ -146,7 +153,14 @@ return require("lazy").setup({
   "hrsh7th/cmp-buffer",
   "hrsh7th/cmp-path",
   "hrsh7th/cmp-cmdline",
-  { "saadparwaiz1/cmp_luasnip", lazy = true },
+  {
+    "L3MON4D3/LuaSnip",
+    -- follow latest release.
+    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    -- install jsregexp (optional!).
+    -- build = "make install_jsregexp",
+  },
+  { "saadparwaiz1/cmp_luasnip", lazy = true, dependencies = { "L3MON4D3/LuaSnip" } },
   {
     "hrsh7th/nvim-cmp",
     config = function()
@@ -154,12 +168,20 @@ return require("lazy").setup({
     end,
     event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
-      "cmp-nvim-lsp",
-      "cmp_luasnip",
-      "cmp-buffer",
-      "cmp-path",
-      "cmp-cmdline",
+      "hrsh7th/cmp-nvim-lsp",
+      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
     },
+  },
+  {
+    "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("nvim-web-devicons").setup({
+        color_icons = true,
+      })
+    end,
   },
   {
     "nvim-neo-tree/neo-tree.nvim",

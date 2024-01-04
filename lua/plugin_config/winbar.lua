@@ -14,7 +14,7 @@ require("winbar").setup({
     file_icon_default = "",
     seperator = "",
     editor_state = "●",
-    lock_icon = "",
+    lock_icon = "",
   },
 
   exclude_filetype = {

@@ -7,7 +7,7 @@ cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+            require'luasnip'.lsp_expand(args.body)
     end,
   },
   window = {
@@ -34,7 +34,7 @@ cmp.setup({
         return true
       end,
     },
-    { name = "vsnip" }, -- For vsnip users.
+    { name = "luasnip" },
   }, {
     { name = "buffer" },
   }),
@@ -138,6 +138,9 @@ require("lspconfig")["pyright"].setup({
 require("lspconfig")["tsserver"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
+})
+require("lspconfig")["gopls"].setup({
+  capabilities = capabilities,
 })
 
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
