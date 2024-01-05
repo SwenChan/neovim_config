@@ -90,9 +90,6 @@ cmp.setup.cmdline(":", {
 -- Set up lspconfig.
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-require("lspconfig")["lua_ls"].setup({
-  capabilities = capabilities,
-})
 
 local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
@@ -121,16 +118,21 @@ local on_attach = function(client, bufnr)
   end, bufopts)
 end
 
--- require("lspconfig")["ruff_lsp"].setup({
---   on_attach = on_attach,
---   capabilities = capabilities,
---   -- init_options = {
---   --   settings = {
---   --     -- Any extra CLI arguments for `ruff` go here.
---   --     args = {},
---   --   },
---   -- },
--- })
+require("lspconfig")["lua_ls"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+require("lspconfig")["ruff_lsp"].setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  init_options = {
+    settings = {
+      -- Any extra CLI arguments for `ruff` go here.
+      args = {},
+    },
+  },
+})
 
 require("lspconfig")["pyright"].setup({
   on_attach = on_attach,
