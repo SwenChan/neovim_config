@@ -94,9 +94,7 @@ return require("lazy").setup({
 
   {
     "L3MON4D3/LuaSnip",
-    -- follow latest release.
     version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-    -- install jsregexp (optional!).
     build = "make install_jsregexp",
   },
 
@@ -207,17 +205,17 @@ return require("lazy").setup({
     icons = {
       cmd = "⌘",
       config = "🛠",
-      event = "📅",
-      ft = "📂",
+      event = " ",
+      ft = "󰈤 ",
       init = "⚙",
       keys = "🗝",
-      plugin = "🔌",
+      plugin = "󱐥 ",
       runtime = "💻",
       require = "🌙",
-      source = "📄",
-      start = "🚀",
-      task = "📌",
-      lazy = "💤 ",
+      source = "󰳏 ",
+      start = " ",
+      task = " ",
+      lazy = "󰒲 ",
     },
   },
 })

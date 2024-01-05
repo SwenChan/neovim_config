@@ -148,7 +148,7 @@ require("lspconfig")["gopls"].setup({
     client.server_capabilities.hoverProvider = false
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-    vim.keymap.set("n", "gr", vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
     vim.keymap.set("n", "<space>rn", '<cmd>GoRename<cr>')
   end
 })
