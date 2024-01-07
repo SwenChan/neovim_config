@@ -5,7 +5,7 @@ require("telescope").setup({
     -- Default configuration for telescope goes here:
     -- config_key = value,
     prompt_prefix = "󰭎 ",
-    selection_caret = "  ",
+    selection_caret = " ",
     entry_prefix = "  ",
     initial_mode = "insert",
     selection_strategy = "reset",
