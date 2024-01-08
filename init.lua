@@ -10,7 +10,7 @@ vim.g.mapleader = " "
 vim.cmd.syntax('on')
 vim.o.number = true
 vim.o.relativenumber = true
-vim.o.signcolumn=number
+vim.o.signcolumn = 'number'
 vim.o.expandtab = true
 vim.o.hidden = true
 vim.opt.shortmess:append { c = true }
