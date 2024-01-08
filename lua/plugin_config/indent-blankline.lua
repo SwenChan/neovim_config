@@ -5,7 +5,7 @@ require("ibl").setup({
   },
   indent = {
     char = "│",
-    tab_char = "⋅",
+    tab_char = "│",
   },
   whitespace = {
     highlight = highlight,

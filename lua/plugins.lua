@@ -200,22 +200,30 @@ return require("lazy").setup({
     opts = {}, -- this is equalent to setup({}) function
   },
 }, {
-
   ui = {
     icons = {
-      cmd = "⌘",
-      config = "🛠",
+      cmd = " ",
+      config = "",
       event = " ",
       ft = "󰈤 ",
+      import = " ",
       init = "⚙",
-      keys = "🗝",
+      keys = " ",
+      loaded = "●",
+      not_loaded = "○",
       plugin = "󱐥 ",
-      runtime = "💻",
-      require = "🌙",
-      source = "󰳏 ",
+      runtime = "",
+      require = "󰢱 ",
+      source = " ",
       start = " ",
       task = " ",
       lazy = "󰒲 ",
+      list = {
+        "●",
+        "➜",
+        "★",
+        "‒",
+      },
     },
   },
 })
