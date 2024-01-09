@@ -6,7 +6,7 @@ M.config = function()
   local cfg = {
     icons = {},
     PATH = "append",
-    install_root_dir = file_utils.join_path(os.getenv("HOME"), '.config', "nvim-data", "mason"),
+    install_root_dir = file_utils.join_path(file_utils.get_home_path(), '.config', "nvim-data", "mason"),
     registries = {
       "lua:mason-registry.index",
       "github:mason-org/mason-registry",
