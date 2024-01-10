@@ -7,7 +7,7 @@ cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-            require'luasnip'.lsp_expand(args.body)
+      require("luasnip").lsp_expand(args.body)
     end,
   },
   window = {
@@ -144,20 +144,26 @@ require("lspconfig")["pyright"].setup({
   capabilities = capabilities,
 })
 
-require("lspconfig")["tsserver"].setup({
-  capabilities = capabilities,
+-- require("lspconfig")["tsserver"].setup({
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+-- })
+
+require("lspconfig")["biome"].setup({
   on_attach = on_attach,
+  capabilities = capabilities,
 })
+
 require("lspconfig")["gopls"].setup({
   capabilities = capabilities,
-  on_attach = function (client, bufnr)
+  on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
     client.server_capabilities.hoverProvider = false
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
     vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-    vim.keymap.set("n", "<space>rn", '<cmd>GoRename<cr>')
-  end
+    vim.keymap.set("n", "<space>rn", "<cmd>GoRename<cr>")
+  end,
 })
 
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
