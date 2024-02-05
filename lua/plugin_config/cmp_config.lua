@@ -1,7 +1,7 @@
 -- Set up nvim-cmp.
 local cmp = require("cmp")
 
-vim.lsp.set_log_level("debug")
+vim.lsp.set_log_level("info")
 
 cmp.setup({
   snippet = {
@@ -144,14 +144,14 @@ require("lspconfig")["pyright"].setup({
   capabilities = capabilities,
 })
 
--- require("lspconfig")["tsserver"].setup({
---   capabilities = capabilities,
---   on_attach = on_attach,
--- })
-
-require("lspconfig")["biome"].setup({
-  on_attach = on_attach,
+require("lspconfig")["tsserver"].setup({
   capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+require("lspconfig")["marksman"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 require("lspconfig")["gopls"].setup({

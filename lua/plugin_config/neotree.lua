@@ -15,6 +15,6 @@ require("neo-tree").setup({
         ".gitignore",
       },
     },
-    use_libuv_file_watcher = true
+    use_libuv_file_watcher = true,
   },
 })
