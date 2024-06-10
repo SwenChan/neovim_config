@@ -16,7 +16,6 @@ require("bufferline").setup({
     diagnostics = "nvim_lsp",
     color_icons = true,
     show_buffer_icons = true,
-    show_buffer_default_icon = true,
     show_tab_indicators = true,
     separator_style = "padded_slant",
     always_show_bufferline = true,
